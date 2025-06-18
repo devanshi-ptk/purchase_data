@@ -23,3 +23,9 @@ The dataset contains 400 entries for each of the features .
   
 ***The features taken into account are age and estimated salary which are 
 required to predict if the user will purchase a new car (1=Yes, 0=No)
+
+Requirements
+- pandas
+- scikit-learn
+- numpy
+- maplotlib
