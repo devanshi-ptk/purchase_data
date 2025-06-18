@@ -13,44 +13,17 @@ def sigmoid(x):
 
 purchaseData = pd.read_csv('Purchase_Logistic.csv') 
 
-#Logistic-Regression-Social-Network-Ads
-#Using Logistic Regression model to predict if a person is 
-#going to buy a new car or not based on the available data
-
-#Problem
-#A company is planning to launch a campaign for their new car brand 
-#and would like to analyze which customers are most likely to 
-#purchase the car so that the ads can specifically target them 
-#To achieve this, they consult a social network advertising company 
-#that possesses the data from another similar campaign. 
-#It is now desired to construct a model to achieve the above goal.
-
-#Dataset
-#The dataset contains 400 entries for each of the features 
-#userId
-#gender
-#age
-#estimatedsalary 
-
-#The target is 
-#purchased history 
-#The features taken into account are age and estimated salary which are 
-#required to predict if the user will purchase a new car (1=Yes, 0=No)
-
 X = purchaseData.iloc[:,[2,3]].values
 Y = purchaseData.iloc[:,4].values
 
 scaler = StandardScaler()
 X = scaler.fit_transform(X)
 
-
 Xtrain,Xtest,Ytrain,Ytest = train_test_split(X,Y,test_size = 0.20,random_state=0)
 
 logr = LogisticRegression(random_state=0)
 logr.fit(Xtrain, Ytrain)
 Ypred = logr.predict(Xtest)
-
-
 
 plt.figure(1);  
 plt.scatter(X[:, 0], X[:, 1], c = Y)
